@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">AndroidUIandLogin-Wentzel</string>
+    <string name="login_signup">Login or Sign Up</string>
+    <string name="email_or_id">Email or ID</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="or">OR</string>
+    <string name="signup">Sign Up</string>
+
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="username">Username</string>
+    <string name="birthday">Birthday</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email">Email</string>
+
+    <string name="signup_success">User Successfully Created</string>
+
+    <string name="welcome">Welcome, </string>
+    <string name="view_all_users">View All Users</string>
+    <string name="wrong_password">Wrong Password</string>
+    <string name="user_not_found">User Not Found</string>
+
+</resources>
