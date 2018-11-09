@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
-import sweng888.psu.edu.androiduiandlogin_wentzel.UserProfile;
 
 public class UserProfilePersistence implements IPersistence {
 
@@ -25,8 +24,8 @@ public class UserProfilePersistence implements IPersistence {
 
         // The ContentValues object create a map of values, where the columns are the keys
         ContentValues contentValues = new ContentValues();
-        contentValues.put(UserProfileTable.COLUMN_NAME_, userProfile.getName());
-        contentValues.put(UserProfileTable.COLUMN_SURNAME, userProfile.getSurname());
+        contentValues.put(UserProfileTable.COLUMN_FIRST_NAME, userProfile.getName());
+        contentValues.put(UserProfileTable.COLUMN_LAST_NAME, userProfile.getLastName());
         contentValues.put(UserProfileTable.COLUMN_USERNAME, userProfile.getUsername());
         contentValues.put(UserProfileTable.COLUMN_PHONE, userProfile.getPhone());
         contentValues.put(UserProfileTable.COLUMN_EMAIL, userProfile.getEmail());
@@ -69,8 +68,8 @@ public class UserProfilePersistence implements IPersistence {
         if(cursor != null && cursor.moveToFirst()){
 
             do {
-                String name = cursor.getString(cursor.getColumnIndex(UserProfileTable.COLUMN_NAME_));
-                String surname = cursor.getString(cursor.getColumnIndex(UserProfileTable.COLUMN_SURNAME));
+                String name = cursor.getString(cursor.getColumnIndex(UserProfileTable.COLUMN_FIRST_NAME));
+                String surname = cursor.getString(cursor.getColumnIndex(UserProfileTable.COLUMN_LAST_NAME));
                 String username = cursor.getString(cursor.getColumnIndex(UserProfileTable.COLUMN_USERNAME));
                 String phone = cursor.getString(cursor.getColumnIndex(UserProfileTable.COLUMN_PHONE));
                 String email = cursor.getString(cursor.getColumnIndex(UserProfileTable.COLUMN_EMAIL));
