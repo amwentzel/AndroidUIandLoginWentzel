@@ -20,5 +20,6 @@
     <string name="view_all_users">View All Users</string>
     <string name="wrong_password">Wrong Password</string>
     <string name="user_not_found">User Not Found</string>
+    <string name="auth_fail">Authentication failed: </string>
 
 </resources>

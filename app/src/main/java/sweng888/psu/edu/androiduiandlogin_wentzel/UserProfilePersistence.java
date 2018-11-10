@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class UserProfilePersistence implements IPersistence {
 
-    public DatabaseAccess databaseAccess;
+    private DatabaseAccess databaseAccess;
 
     public UserProfilePersistence (Context context){
         this.databaseAccess = new DatabaseAccess(context);
@@ -17,14 +17,11 @@ public class UserProfilePersistence implements IPersistence {
 
     @Override
     public void insert(Object o) {
-        // Cast the generic object to have access to the user info.
         UserProfile userProfile = (UserProfile) o;
-
         SQLiteDatabase sqLiteDatabase = databaseAccess.getWritableDatabase();
 
-        // The ContentValues object create a map of values, where the columns are the keys
         ContentValues contentValues = new ContentValues();
-        contentValues.put(UserProfileTable.COLUMN_FIRST_NAME, userProfile.getName());
+        contentValues.put(UserProfileTable.COLUMN_FIRST_NAME, userProfile.getFirstName());
         contentValues.put(UserProfileTable.COLUMN_LAST_NAME, userProfile.getLastName());
         contentValues.put(UserProfileTable.COLUMN_USERNAME, userProfile.getUsername());
         contentValues.put(UserProfileTable.COLUMN_PHONE, userProfile.getPhone());
@@ -32,57 +29,41 @@ public class UserProfilePersistence implements IPersistence {
         contentValues.put(UserProfileTable.COLUMN_PASSWORD, userProfile.getPassword());
         contentValues.put(UserProfileTable.COLUMN_BIRTHDAY, String.valueOf(userProfile.getBirthday()));
 
-        // Insert the ContentValues into the User table.
         sqLiteDatabase.insert(UserProfileTable.TABLE_NAME, null, contentValues);
-
         sqLiteDatabase.close();
     }
 
     @Override
     public void delete(Object o) {
-
     }
 
     @Override
     public void edit(Object o) {
-
     }
 
     @Override
     public ArrayList getDataFromDB() {
-        // Create ArrayList of movies
-        ArrayList<UserProfile> userProfiles = null;
-
-        // Instatiate the database.
+        ArrayList<UserProfile> userProfiles;
         SQLiteDatabase sqLiteDatabase = databaseAccess.getWritableDatabase();
-
-        // Gather all the records found for the MOVIE table.
         Cursor cursor = sqLiteDatabase.rawQuery(UserProfileTable.select(), null);
-
-        // It will iterate since the first record gathered from the database.
         cursor.moveToFirst();
-
-        // Check if there exist other records in the cursor
         userProfiles = new ArrayList<>();
 
         if(cursor != null && cursor.moveToFirst()){
-
             do {
-                String name = cursor.getString(cursor.getColumnIndex(UserProfileTable.COLUMN_FIRST_NAME));
-                String surname = cursor.getString(cursor.getColumnIndex(UserProfileTable.COLUMN_LAST_NAME));
+                String firstName = cursor.getString(cursor.getColumnIndex(UserProfileTable.COLUMN_FIRST_NAME));
+                String lastName = cursor.getString(cursor.getColumnIndex(UserProfileTable.COLUMN_LAST_NAME));
                 String username = cursor.getString(cursor.getColumnIndex(UserProfileTable.COLUMN_USERNAME));
                 String phone = cursor.getString(cursor.getColumnIndex(UserProfileTable.COLUMN_PHONE));
                 String email = cursor.getString(cursor.getColumnIndex(UserProfileTable.COLUMN_EMAIL));
                 String password = cursor.getString(cursor.getColumnIndex(UserProfileTable.COLUMN_PASSWORD));
                 String birthday = cursor.getString(cursor.getColumnIndex(UserProfileTable.COLUMN_BIRTHDAY));
 
-                UserProfile userProfile = new UserProfile(name, surname, username, phone, email, password, birthday);
+                UserProfile userProfile = new UserProfile(firstName, lastName, username, phone, email, password, birthday);
                 userProfiles.add(userProfile);
-
             } while (cursor.moveToNext()) ;
         }
-
+        cursor.close();
         return userProfiles;
-
     }
 }

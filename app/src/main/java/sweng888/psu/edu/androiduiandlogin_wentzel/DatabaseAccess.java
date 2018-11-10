@@ -6,9 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseAccess extends SQLiteOpenHelper {
 
-    public static final int DATABASE_VERSION = 2;
-    public static final String DATABASE_NAME = "users.db";
-
+    private static final int DATABASE_VERSION = 2;
+    private static final String DATABASE_NAME = "users.db";
 
     public DatabaseAccess(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -20,15 +19,12 @@ public class DatabaseAccess extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Create the User table once the database is instantiated.
-        db.execSQL(UserProfile.create());
+        db.execSQL(UserProfileTable.create());
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // In case the database is a cache for online data, you can discard the existing data
-        // once the app is gathering information from an external data source.
-        db.execSQL(UserProfile.delete());
+        db.execSQL(UserProfileTable.delete());
         onCreate(db);
     }
 

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "138302385989",
+    "firebase_url": "https://androiduiandloginwentzel.firebaseio.com",
+    "project_id": "androiduiandloginwentzel",
+    "storage_bucket": "androiduiandloginwentzel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138302385989:android:fa22241c6000381c",
+        "android_client_info": {
+          "package_name": "sweng888.psu.edu.androiduiandlogin_wentzel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138302385989-j8f5c9ve313ei9h30t1dntg0jsih5gcd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTYg4wS3jvvGsSqVTTl5Wk9inxVv9WxNk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

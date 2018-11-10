@@ -7,8 +7,8 @@ import java.util.Date;
 
 public class UserProfile implements Serializable {
 
-    private String name;
-    private String surname;
+    private String firstName;
+    private String lastName;
     private String username;
     private String phone; // allows null
     private String email;
@@ -18,9 +18,9 @@ public class UserProfile implements Serializable {
     public UserProfile() {
     }
 
-    public UserProfile(String name, String surname, String username, @Nullable String phone, String email, String password, @Nullable String birthday ) {
-        this.name = name;
-        this.surname = surname;
+    public UserProfile(String firstName, String lastName, String username, @Nullable String phone, String email, String password, @Nullable String birthday ) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = username;
         this.phone = phone;
         this.email = email;
@@ -28,9 +28,9 @@ public class UserProfile implements Serializable {
         this.birthday = birthday;
     }
 
-    public UserProfile(String name, String surname, String username, String email, String password) {
-        this.name = name;
-        this.surname = surname;
+    public UserProfile(String firstName, String lastName, String username, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = username;
         this.email = email;
         this.password = password;
@@ -41,20 +41,20 @@ public class UserProfile implements Serializable {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getUsername() {
